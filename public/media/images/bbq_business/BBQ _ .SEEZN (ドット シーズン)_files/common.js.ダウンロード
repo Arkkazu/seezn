@@ -1,0 +1,266 @@
+$(window).scroll(function () {
+  //120px下にスクロールすると、bodyにclass="scroll"を付ける／戻ると外す
+  //120px下にスクロールすると、.page_topにclass="on"を付ける／戻ると外す
+  if ($(this).scrollTop() > 120) {
+    $("body,#header,#sp_menu").addClass("scroll");
+    $(".page_top").addClass("on");
+  }
+  if ($(this).scrollTop() < 121) {
+    $("body,#header,#sp_menu").removeClass("scroll");
+    $(".page_top").removeClass("on");
+  }
+  //#footerまでスクロールしたら、.page_topにclass="bottom"を付ける／戻ると外す
+  scrollHeight = $(document).height();
+  scrollPosition = $(window).height() + $(window).scrollTop();
+  footHeight = $("#footer").innerHeight();
+  if (scrollHeight - scrollPosition <= footHeight) {
+    $(".page_top").addClass("bottom");
+  } else {
+    $(".page_top").removeClass("bottom");
+  }
+});
+//gnaviのメガメニュー
+function megaMenu() {
+  $("#gnavi > ul > li.hover_menu").hover(
+    function () {
+      $(this).addClass("hover");
+      Panel = $(this).children(".mega_menu_outer");
+      Panel.each(function () {
+        Panel.stop().slideDown();
+      });
+    },
+    function () {
+      $(this).removeClass("hover");
+      Panel.stop().slideUp();
+    }
+  );
+  $(".login #hd_sp_icon ul li.user > div").hover(
+    function () {
+      $(this).addClass("hover");
+      Panel = $(this).children(".mega_menu_outer");
+      Panel.each(function () {
+        Panel.stop().slideDown();
+      });
+    },
+    function () {
+      $(this).removeClass("hover");
+      Panel.stop().slideUp();
+    }
+  );
+}
+$(function () {
+  megaMenu();
+
+  //.page_top a をクリックでスムーズにスクロール
+  $(".page_top a").click(function () {
+    $("html,body").animate(
+      {
+        scrollTop: $($(this).attr("href")).offset().top,
+      },
+      500,
+      "swing"
+    );
+    return false;
+  });
+  //SPメニューのsp_menu_btnをタップで
+  $("#sp_menu_btn").on("click", function () {
+    $("body").toggleClass("sp_menu_open");
+  });
+
+  //#sp_filterをクリックで#sp_menuを閉
+  $("#sp_filter").click(function () {
+    $("#sp_menu_btn").removeClass("active");
+    $("#sp_menu").removeClass("sp_menu_open");
+    $("body").removeClass("sp_menu_open");
+    $("#sp_filter").removeClass("sp_menu_open");
+  });
+  //sp_menuうちのプルダウンメニュー
+  $(".acc_menu").click(function () {
+    $(this).toggleClass("open");
+    $(this).children(".menu_panel").slideToggle();
+  });
+});
+$(window).on("load", function () {
+  //telリンク <span class="tel-link">000-0000-0000</span>をSP･TB表示時のみ<a href="tel:00000000000">に置換。
+  var ua = navigator.userAgent;
+  if ((ua.indexOf("iPhone") > 0 && ua.indexOf("iPod") == -1) || (ua.indexOf("Android") > 0 && ua.indexOf("Mobile") > 0 && ua.indexOf("SC-01C") == -1 && ua.indexOf("A1_07") == -1)) {
+    $(".tel-link").each(function () {
+      var str = $(this).text();
+      $(this).html(
+        $("<a>")
+          .attr("href", "tel:" + str.replace(/-/g, ""))
+          .append(str + "</a>")
+      );
+    });
+  }
+});
+
+//ページトップボタン
+$(document).ready(function () {
+  $("#pagetop").hide();
+  // ↑ページトップボタンを非表示にする
+  $(window).on("scroll", function () {
+    if ($(this).scrollTop() > 100) {
+      // ↑ スクロール位置が100よりも小さい場合に以下の処理をする
+      $("#pagetop").fadeIn();
+      //      $("#pagetop").slideDown("fast");
+      // ↑ (100より小さい時は)ページトップボタンをスライドダウン
+    } else {
+      $("#pagetop").fadeOut();
+      //      $("#pagetop").slideUp("fast");
+      // ↑ それ以外の場合の場合はスライドアップする。
+    }
+
+    // フッター固定する
+    scrollHeight = $(document).height();
+    // ↑ ドキュメントの高さ
+    scrollPosition = $(window).height() + $(window).scrollTop() - 40;
+    // ↑　ウィンドウの高さ+スクロールした高さ→　現在のトップからの位置
+    footHeight = $("footer").innerHeight();
+    // ↑ フッターの高さ
+    var w = $(window).width();
+    var x = 1500;
+
+    if (scrollHeight - scrollPosition <= footHeight) {
+      // 現在の下から位置が、フッターの高さの位置にはいったら
+      //  "#pagetop"のpositionをabsoluteに変更し、フッターの高さの位置にする
+
+      if (w > x) {
+        $("#pagetop").css({
+          position: "absolute",
+          bottom: "auto",
+          right: "50px",
+          top: "-20px",
+        });
+      } else {
+        $("#pagetop").css({
+          position: "absolute",
+          bottom: "auto",
+          right: "15px", //70
+          top: "-20px",
+        });
+      }
+    } else {
+      // それ以外の場合は元のcssスタイルを指定
+
+      if (w > x) {
+        $("#pagetop").css({
+          position: "fixed",
+          top: "auto",
+          right: "50px",
+          bottom: "20px",
+        });
+      } else {
+        $("#pagetop").css({
+          position: "fixed",
+          top: "auto",
+          right: "15px",
+          bottom: "20px",
+        });
+      }
+    }
+  });
+  // トップへスムーススクロール
+  $("#pagetop a").click(function () {
+    $("body,html").animate(
+      {
+        scrollTop: 0,
+      },
+      500
+    );
+    // ページのトップへ 500 のスピードでスクロールする
+    return false;
+  });
+
+  //フッター無料登録ボタン
+  $("#ft_free_entry").hide();
+  if ($("body").hasClass("free_entry")) {
+    $(window).on("scroll", function () {
+      if ($(this).scrollTop() > 100) {
+        $("#ft_free_entry").fadeIn();
+      } else {
+        $("#ft_free_entry").fadeOut();
+      }
+
+      // フッター固定する
+      scrollHeight = $(document).height();
+      // ↑ ドキュメントの高さ
+      scrollPosition = $(window).height() + $(window).scrollTop() - 40;
+      // ↑　ウィンドウの高さ+スクロールした高さ→　現在のトップからの位置
+      footHeight = $("footer").innerHeight();
+      // ↑ フッターの高さ
+      var w = $(window).width();
+      var x = 1500;
+
+      if (scrollHeight - scrollPosition <= footHeight) {
+        // 現在の下から位置が、フッターの高さの位置にはいったら
+        //  "#pagetop"のpositionをabsoluteに変更し、フッターの高さの位置にする
+
+        if (w > x) {
+          $("#ft_free_entry").css({
+            position: "absolute",
+            bottom: "auto",
+            right: "110px",
+            top: "-20px",
+          });
+        } else {
+          $("#ft_free_entry").css({
+            position: "absolute",
+            bottom: "auto",
+            right: "65px", //70
+            top: "-20px",
+          });
+        }
+      } else {
+        // それ以外の場合は元のcssスタイルを指定
+
+        if (w > x) {
+          $("#ft_free_entry").css({
+            position: "fixed",
+            top: "auto",
+            right: "110px",
+            bottom: "18px",
+          });
+        } else {
+          $("#ft_free_entry").css({
+            position: "fixed",
+            top: "auto",
+            right: "65px",
+            bottom: "18px",
+          });
+        }
+      }
+    });
+  }
+});
+
+//ページ内リンクをスムーズスクロールに
+document.addEventListener("DOMContentLoaded", function () {
+  const pageInternalLinks = document.querySelectorAll('a[href^="#"]');
+
+  pageInternalLinks.forEach((link) => {
+    link.addEventListener("click", function (event) {
+      event.preventDefault();
+      const targetId = this.getAttribute("href");
+      const targetElement = document.querySelector(targetId);
+      const targetPosition = targetElement.offsetTop;
+
+      window.scrollTo({
+        top: targetPosition,
+        behavior: "smooth",
+      });
+    });
+  });
+});
+
+//.js-sp-linkをクリックでSPメニューを閉じる
+document.addEventListener("DOMContentLoaded", function () {
+  const spLinkElements = document.querySelectorAll(".js-sp-link");
+
+  spLinkElements.forEach(function (element) {
+    element.addEventListener("click", function () {
+      console.log("a");
+      document.body.classList.remove("sp_menu_open");
+    });
+  });
+});

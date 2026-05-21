@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@config "../../tailwind.config.js";
 
 :root {
   --background: #ffffff;
@@ -8,19 +9,89 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
+} */
+
+@layer base {
+  html {
+    @apply text-[calc(100vw/375)] md:text-[calc(100vw/768)] pc:text-[1px] 2pc:text-[calc(100vw/1921)];
+  }
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: Arial, Helvetica, sans-serif;
+    @apply text-14 pc:text-16;
+  }
+  img,
+  video {
+    max-width: none;
+  }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ボタン、カード、見出しブロックなどを入れる */
+/* @layer components {
+} */
+
+@layer utilities {
+  .u-mt-80 {
+    @apply mt-40 pc:mt-80;
+  }
+  .u-mt-40 {
+    @apply mt-24 pc:mt-40;
+  }
+  .u-text-24 {
+    @apply text-22 pc:text-24;
+  }
+  .u-text-20 {
+    @apply text-18 pc:text-20;
+  }
+  .u-text-18 {
+    @apply text-16 pc:text-18;
+  }
+  /* .mask,
+.inside-mask {
+  --duration01: 4.5s;
+  --duration02: 1.5s;
+  mask-image: url(/media/images/bbq/mask-03.webp);
+  mask-repeat: no-repeat;
+  mask-size: 100% 300%;
+  mask-position: 60% -40%;
+} */
+  .mask,
+  .inside-mask {
+    -webkit-mask-image: url(/media/images/bbq/mask-03.webp);
+    mask-image: url(/media/images/bbq/mask-03.webp);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    will-change:
+      clip-path,
+      -webkit-mask-position,
+      -webkit-mask-size;
+  }
+  /* 既存の .mask, .inside-mask は今回の方式では不要です（撤去が前提です） */
+
+  /* 通常時は必ず無効 */
+  .bg-picture {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  /* 遷移中だけ有効 */
+  .bg-picture.is-wave {
+    -webkit-mask-image: url(/media/images/bbq/mask-03.webp);
+    mask-image: url(/media/images/bbq/mask-03.webp);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+
+    will-change:
+      clip-path,
+      -webkit-mask-position,
+      -webkit-mask-size;
+  }
 }

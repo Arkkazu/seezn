@@ -1,0 +1,96 @@
+//アコーディオンメニュー
+/*$(window).on("load resize", function () {
+  var w = $(window).width();
+  var x = 768;
+
+  if (w <= x) {
+    alert(w);
+    $(".ft_navi .title").click(function () {
+      $(this).toggleClass("open");
+      $(this).next(".list").slideToggle();
+    });
+  }
+});*/
+
+$(".ft_navi .title").click(function () {
+  var w =
+    window.innerWidth ||
+    document.documentElement.clientWidth ||
+    document.body.clientWidth;
+  var x = 768;
+  if (w <= x) {
+    $(this).toggleClass("open");
+    $(this).next(".list").slideToggle();
+  }
+});
+
+$(window).on("load resize", function () {
+  var w =
+    window.innerWidth ||
+    document.documentElement.clientWidth ||
+    document.body.clientWidth;
+  var x = 768;
+
+  if (w <= x) {
+    $(".ft_navi .list").css("display", "none");
+  } else {
+    $(".ft_navi .list").css("display", "block");
+  }
+});
+
+$("#contry02").click(function () {
+  $(this).addClass("open");
+  $("#other_contry").slideDown();
+});
+$("#contry01").click(function () {
+  $(this).removeClass("open");
+  $("#other_contry").slideUp();
+});
+
+$(".cat_box dl dd >span").click(function () {
+  $(this).toggleClass("open");
+  $(this).next("ul").slideToggle();
+});
+
+$(".member_menu .acc_btn").click(function () {
+  $(this).toggleClass("open");
+  $(this).next("div").slideToggle();
+});
+
+/*$(function () {
+  var body = document.body;
+  var clientWidth = body.clientWidth;
+  var noScrollBarWidth = clientWidth;
+  var diff = 0;
+  var w = $(window).width();
+  var x = 1500;
+  //↓モーダルを開くアクション
+  $(window).on("load resize", function () {
+    //↓スクロールバーを無くす前
+    clientWidth = body.clientWidth;
+    body.style.overflow = "hidden";
+    //↓スクロールバーを無くした後
+    noScrollBarWidth = body.clientWidth;
+    //↓スクロールバーの長さ計算
+    diff = noScrollBarWidth - clientWidth;
+    alert(diff);
+    if (diff > 0) {
+      body.style["padding-right"] = diff + "px";
+      if (w > x) {
+        pl = diff + 50 + "px";
+      } else {
+        pl = diff + 15 + "px";
+      }
+    }
+  });
+});*/
+
+/*$(window).on("load resize", function () {
+  var width = $(window).width();
+  var width2 =
+    window.innerWidth ||
+    document.documentElement.clientWidth ||
+    document.body.clientWidth;
+  alert(width);
+  alert(width2);
+});*/
