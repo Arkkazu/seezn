@@ -148,6 +148,7 @@ export default function TestPage() {
           </div>
         </div>
       </div>
+      <p className="text-16">通常のフォントサイズ</p>
     </div>
   );
 }
