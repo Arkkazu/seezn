@@ -44,5 +44,8 @@ next-env.d.ts
 .tmp-chrome/
 *.stackdump
 
+# docs
+DEPLOY.md
+
 *storybook.log
 storybook-static

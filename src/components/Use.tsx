@@ -56,7 +56,7 @@ export const Use = () => {
                     <span className="text-20 pc:text-24 text-white">6</span>
                   </div>
                   <div className="flex-1">
-                    <p className="">設備や備品の破損が確認された場合、修理・交換費用をご負担いただくことがあります。せて頂く場合がございます。</p>
+                    <p className="">設備や備品の破損が確認された場合、修理・交換費用をご負担いただくことがあります。</p>
                   </div>
                 </li>
                 <li className="flex items-center gap-x-16">
