@@ -1059,7 +1059,7 @@ export default function Home() {
                   </div>
                   <div className="grid grid-cols-3 gap-4 pc:gap-24">
                     {infoNavItems.map((item) => (
-                      <Link key={item.href} className="h-64 pc:h-80 px-8 pc:px-16 bg-off-white border border-black flex justify-between items-center gap-x-8 pc:gap-x-16" href={item.href}>
+                      <Link key={item.href} className="h-56 pc:h-80 px-8 pc:px-16 bg-off-white border border-black flex justify-between items-center gap-x-8 pc:gap-x-16" href={item.href}>
                         <div className="flex flex-col gap-8">
                           <span className="u-text-16 font-noto-serif font-medium leading-none">{item.en}</span>
                           <span className="u-text-12 font-medium leading-none">{item.ja}</span>
