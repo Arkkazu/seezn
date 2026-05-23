@@ -406,7 +406,7 @@ export function KvBackground() {
       {/* Titles */}
       <div data-name="ttls-contents" className="absolute left-1/2 top-1/2 z-20 h-auto w-full -translate-x-1/2 -translate-y-1/2">
         {TITLES.map((t) => (
-          <h3 key={t.key} data-name={t.key} className="font-noto-serif absolute left-1/2 top-1/2 z-10 h-auto w-full -translate-x-1/2 text-center text-white u-text-64 opacity-0 [text-shadow:0_2px_8px_rgba(0,0,0,0.8),0_0_16px_rgba(0,0,0,0.5)]" style={{ opacity: 0, visibility: "hidden" }}>
+          <h3 key={t.key} data-name={t.key} className="font-noto-serif absolute left-1/2 top-1/2 z-10 h-auto w-full -translate-x-1/2 text-center text-white u-text-56 opacity-0 [text-shadow:0_2px_8px_rgba(0,0,0,0.8),0_0_16px_rgba(0,0,0,0.5)]" style={{ opacity: 0, visibility: "hidden" }}>
             {t.label}
           </h3>
         ))}
@@ -861,7 +861,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section data-kvbg="PLAN" className="min-h-screen mt-[100dvh] pt-[60dvh]">
+        <section data-kvbg="PLAN" className="min-h-screen mt-[100dvh] pt-[60dvh]" id="plan">
           <div data-zoom-panel-wrap>
             <div data-zoom-panel className="relative bg-white mx-auto px-20 py-80 pc:py-160 w-full origin-center z-[500]">
               <div className="mx-auto max-w-800">
@@ -937,7 +937,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section data-kvbg="SERVICE" className="min-h-screen mt-[100dvh] pt-[100dvh]">
+        <section data-kvbg="SERVICE" className="min-h-screen mt-[100dvh] pt-[100dvh]" id="service">
           <div data-zoom-panel-wrap>
             <div data-zoom-panel className="relative bg-white mx-auto px-20 py-80 pc:py-160 w-full origin-center z-[500]">
               <div className="mx-auto max-w-800">
@@ -1006,7 +1006,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section data-kvbg="USE" className="min-h-screen mt-[100dvh] pt-[100dvh] overflow-hidden">
+        <section data-kvbg="USE" className="min-h-screen mt-[100dvh] pt-[100dvh] overflow-hidden" id="howTo">
           <div data-zoom-panel-wrap>
             <div data-zoom-panel className="relative bg-white mx-auto px-20 py-80 pc:py-160 w-full origin-center z-[500]">
               <div className="mx-auto max-w-800">
@@ -1040,7 +1040,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section data-kvbg="ACCESS" className="min-h-screen mt-[100dvh] pt-[100dvh] overflow-hidden">
+        <section data-kvbg="ACCESS" className="min-h-screen mt-[100dvh] pt-[100dvh] overflow-hidden" id="access">
           <div data-zoom-panel-wrap>
             <div data-zoom-panel className="relative bg-white mx-auto px-20 pt-80 pb-160 pc:py-160 w-full origin-center z-[500]">
               <div className="mx-auto max-w-800">

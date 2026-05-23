@@ -69,6 +69,9 @@
   .u-text-24 {
     @apply text-18 pc:text-24;
   }
+  .u-text-56 {
+    @apply text-24 pc:text-56;
+  }
   .u-text-64 {
     @apply text-32 pc:text-64;
   }
