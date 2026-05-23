@@ -39,20 +39,38 @@
 } */
 
 @layer utilities {
-  .u-mt-80 {
-    @apply mt-40 pc:mt-80;
-  }
   .u-mt-40 {
     @apply mt-24 pc:mt-40;
   }
-  .u-text-24 {
-    @apply text-22 pc:text-24;
+  .u-mt-80 {
+    @apply mt-40 pc:mt-80;
   }
-  .u-text-20 {
-    @apply text-18 pc:text-20;
+  .u-text-10 {
+    @apply text-4 pc:text-10;
+  }
+  .u-text-12 {
+    @apply text-6 pc:text-12;
+  }
+  .u-text-14 {
+    @apply text-8 pc:text-14;
+  }
+  .u-text-16 {
+    @apply text-10 pc:text-16;
   }
   .u-text-18 {
-    @apply text-16 pc:text-18;
+    @apply text-12 pc:text-18;
+  }
+  .u-text-20 {
+    @apply text-14 pc:text-20;
+  }
+  .u-text-22 {
+    @apply text-16 pc:text-22;
+  }
+  .u-text-24 {
+    @apply text-18 pc:text-24;
+  }
+  .u-text-64 {
+    @apply text-32 pc:text-64;
   }
   /* .mask,
 .inside-mask {
