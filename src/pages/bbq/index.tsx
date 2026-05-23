@@ -1,4 +1,3 @@
-"use client";
 import { LayoutBbq } from "@/components/LayoutBbq";
 import Image from "next/image";
 import Link from "next/link";
@@ -381,7 +380,7 @@ export function KvBackground() {
         }}
       >
         {/* SP */}
-        <video data-name="kv-video-sp" className="h-full w-full object-cover" poster="https://www.gorakadan.com/fuji/golf/wp-content/themes/Gorakadan-fuji-golf/dist/img/home/poster-kv-video-sp.webp" preload="auto" loop playsInline muted autoPlay webkit-playsinline="true">
+        <video data-name="kv-video-sp" className="h-full w-full object-cover" preload="auto" loop playsInline muted autoPlay>
           <source src="/media/images/bbq/BBQnologo_sp.mp4" type="video/mp4" />
         </video>
       </div>
@@ -429,6 +428,9 @@ export default function Home() {
     let ctx: { revert: () => void } | undefined;
     let lenis: import("lenis").default | undefined;
     let scrollFallback: (() => void) | undefined;
+    let tickerCb: ((time: number) => void) | undefined;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    let gsapInstance: any;
 
     const run = async () => {
       const gsapModule = await import("gsap");
@@ -436,6 +438,7 @@ export default function Home() {
       const { default: Lenis } = await import("lenis");
 
       const gsap = gsapModule.gsap || gsapModule.default || gsapModule;
+      gsapInstance = gsap;
       const ScrollTrigger = stModule.ScrollTrigger;
 
       gsap.registerPlugin(ScrollTrigger);
@@ -443,7 +446,8 @@ export default function Home() {
 
       lenis = new Lenis({ duration: 1.2 });
       lenis.on("scroll", ScrollTrigger.update);
-      gsap.ticker.add((time) => lenis!.raf(time * 1000));
+      tickerCb = (time: number) => lenis!.raf(time * 1000);
+      gsap.ticker.add(tickerCb);
       gsap.ticker.lagSmoothing(0);
 
       if (!pageRef.current) return;
@@ -786,6 +790,7 @@ export default function Home() {
       try {
         ctx?.revert();
         lenis?.destroy();
+        if (tickerCb && gsapInstance) gsapInstance.ticker.remove(tickerCb);
         if (scrollFallback) window.removeEventListener("scroll", scrollFallback);
       } catch {
         // noop
@@ -801,7 +806,7 @@ export default function Home() {
         {/* 動画区間 */}
         <section data-kvbg="VIDEO" className="relative min-h-screen">
           <h1 className="absolute top-1/2 left-1/2 -translate-1/2 z-1">
-            <Image className="w-180 pc:w-424" src="/media/images/bbq/svg_seezn-logo.svg" alt="seezn（シーズン）" loading="lazy" width="424" height="106" />
+            <Image className="w-180 pc:w-424" src="/media/images/bbq/svg_seezn-logo.svg" alt="seezn（シーズン）" loading="lazy" width={424} height={106} />
           </h1>
         </section>
 
@@ -1017,7 +1022,7 @@ export default function Home() {
                 <div className="flex flex-col gap-80 pc:gap-160">
                   <div className="flex flex-col gap-30 pc:gap-60">
                     <SectionTitle title="How to use" subTitle="ご利用方法" />
-                    <div className="bg-[#e2dfd3] px-12 pc:px-20 py-24 pc:py-40 pc:px-56 pc:py-64">
+                    <div className="bg-[#e2dfd3] px-12 pc:px-56 py-24 pc:py-64">
                       <div className="">
                         {facilityInfoItems.map((item) => (
                           <div key={item.label} className="grid grid-cols-[72rem_1fr] pc:grid-cols-[140rem_1fr] gap-8 pc:gap-32 py-10 pc:py-20 items-center border-b border-[#999]">
