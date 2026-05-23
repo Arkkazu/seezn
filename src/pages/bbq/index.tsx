@@ -985,13 +985,13 @@ export default function Home() {
                                 </div>
 
                                 {item.price && (
-                                  <div className="flex flex-col items-end gap-4 pc:flex-row pc:items-baseline pc:gap-8">
-                                    <div className="flex items-center gap-4">
+                                  <div className="flex flex-col items-end pc:flex-row pc:items-baseline gap-4 pc:gap-12">
+                                    <div className="flex items-center gap-4 pc:gap-8">
                                       {item.pricePrefix && <span className="u-text-14 font-medium leading-none">{item.pricePrefix}</span>}
                                       <span className="inline-block scale-y-[1.3] u-text-18 font-bold leading-none">{item.price}</span>
                                     </div>
                                     {(item.priceSubPrefix || item.priceSub) && (
-                                      <div className="flex items-center gap-4">
+                                      <div className="flex items-center gap-4 pc:gap-8">
                                         {item.priceSubPrefix && <span className="u-text-14 font-medium leading-none">{item.priceSubPrefix}</span>}
                                         {item.priceSub && <span className="inline-block scale-y-[1.3] u-text-18 font-bold leading-none">{item.priceSub}</span>}
                                       </div>
