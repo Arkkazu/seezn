@@ -222,7 +222,13 @@ const optionItems = [
   },
   {
     label: "貸切（30名以上）",
-    text: "※50名以上でのご利用の場合は無料",
+    text: (
+      <>
+        ※50名以上でのご利用の場合は無料
+        <br />
+        ※GW、お盆期間は、50名以下の貸切不可
+      </>
+    ),
     pricePrefix: "平日",
     price: "¥15,000",
     priceSubPrefix: "土日祝",
@@ -235,8 +241,6 @@ const optionItems = [
         ※1時間単位
         <br />
         ※貸し切りの場合は、4ブース分
-        <br />
-        ※GW、お盆期間は、50名以下の貸切不可
       </>
     ),
     pricePrefix: (
@@ -354,8 +358,8 @@ const BG_ITEMS: BgItem[] = [
 ];
 
 const TITLES = [
-  { key: "ABOUT", label: "Usage flow" },
-  { key: "PLAN", label: "Plan" },
+  { key: "ABOUT", label: "USAGE FLOW" },
+  { key: "PLAN", label: "PLAN" },
   { key: "SERVICE", label: "SERVICE" },
   { key: "USE", label: "HOW TO USE" },
   { key: "ACCESS", label: "ACCESS" },
@@ -861,7 +865,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section data-kvbg="PLAN" className="min-h-screen mt-[100dvh] pt-[60dvh]" id="plan">
+        <section data-kvbg="PLAN" className="min-h-screen mt-[100dvh] pt-[100dvh]" id="plan">
           <div data-zoom-panel-wrap>
             <div data-zoom-panel className="relative bg-white mx-auto px-20 py-80 pc:py-160 w-full origin-center z-[500]">
               <div className="mx-auto max-w-800">
@@ -977,18 +981,18 @@ export default function Home() {
                               <div key={item.label} className="flex flex-col gap-8 py-12 pc:py-20 pc:flex-row pc:items-center pc:justify-between">
                                 <div className="shrink-0 flex flex-col gap-4 pc:gap-8">
                                   <p className="u-text-18 font-bold leading-none">{item.label}</p>
-                                  <p className="u-text-10 font-medium leading-[1.2]">{item.text}</p>
+                                  <p className="u-text-14 font-medium leading-[1.2]">{item.text}</p>
                                 </div>
 
                                 {item.price && (
                                   <div className="flex flex-col items-end gap-4 pc:flex-row pc:items-baseline pc:gap-8">
                                     <div className="flex items-center gap-4">
-                                      {item.pricePrefix && <span className="u-text-10 font-medium leading-none">{item.pricePrefix}</span>}
+                                      {item.pricePrefix && <span className="u-text-14 font-medium leading-none">{item.pricePrefix}</span>}
                                       <span className="inline-block scale-y-[1.3] u-text-18 font-bold leading-none">{item.price}</span>
                                     </div>
                                     {(item.priceSubPrefix || item.priceSub) && (
                                       <div className="flex items-center gap-4">
-                                        {item.priceSubPrefix && <span className="u-text-10 font-medium leading-none">{item.priceSubPrefix}</span>}
+                                        {item.priceSubPrefix && <span className="u-text-14 font-medium leading-none">{item.priceSubPrefix}</span>}
                                         {item.priceSub && <span className="inline-block scale-y-[1.3] u-text-18 font-bold leading-none">{item.priceSub}</span>}
                                       </div>
                                     )}
