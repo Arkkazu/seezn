@@ -172,44 +172,44 @@ const serviceInfoItems = [
   {
     title: "BBQ道具一式",
     text: "炭 / 網 / トング / 皿 / プラコップ / ペーパータオル / 割りばし / キッチンはさみ / 包丁 / まな板 / 使い捨て鉄板（焼きそば用）/ タレ / 塩コショウ / 調理用油 / ゴミ袋",
-    className: "max-md:order-1 col-span-6 md:col-span-2 bg-white",
+    className: "max-pc:order-1 col-span-6 pc:col-span-2 bg-white",
   },
   {
     title: "会場設営完備",
     text: "イス / テーブル / グリル / タープテント 設置します",
-    className: "max-md:order-6 max-md:col-span-3 bg-[#c9c9c9]",
+    className: "max-pc:order-6 max-pc:col-span-3 bg-[#c9c9c9]",
   },
   {
     title: "各ブースに\nシンク・調理台完備",
-    className: "max-md:order-2 max-md:col-span-2 bg-[#c9c9c9]",
+    className: "max-pc:order-2 max-pc:col-span-2 bg-[#c9c9c9]",
   },
   {
     title: "お持ち込み自由",
-    className: "max-md:order-3 max-md:col-span-2 bg-[#595757] text-white",
+    className: "max-pc:order-3 max-pc:col-span-2 bg-[#595757] text-white",
   },
   {
     title: (
       <>
         クーラー
-        <br className="md:hidden" />
+        <br className="pc:hidden" />
         ボックス
         <br />
         保冷剤貸出
       </>
     ),
     note: "※数に限りがございます",
-    className: "max-md:order-4 max-md:col-span-2 bg-white",
+    className: "max-pc:order-4 max-pc:col-span-2 bg-white",
   },
   {
     title: "ベビールームあり",
     text: "授乳・おむつ替えなどの一時利用は無料でご利用いただけます",
-    className: "max-md:order-5 max-md:col-span-3 bg-white",
+    className: "max-pc:order-5 max-pc:col-span-3 bg-white",
   },
   {
     title: "火起こし準備不要・ゴミ持ち帰り不要",
     text: "グリル火起こし / 洗い物 / ゴミの処理はスタッフにおまかせ",
     note: "※ゴミの分別のみお客様にお願いしています",
-    className: "max-md:order-7 col-span-6 md:col-span-2 bg-white md:bg-[#c9c9c9]",
+    className: "max-pc:order-7 col-span-6 pc:col-span-2 bg-white pc:bg-[#c9c9c9]",
   },
 ];
 
@@ -254,12 +254,12 @@ const facilityInfoItems = [
     body: (
       <div className="flex flex-wrap items-center gap-x-8 gap-y-8">
         <span>各３時間制</span>
-        <div className="max-md:w-full flex items-center gap-8">
-          <span className="border border-[#999] bg-white px-8 py-4 text-14 pc:text-16 leading-none">昼の部</span>
+        <div className="flex items-center gap-2 pc:gap-8">
+          <span className="border border-[#999] bg-white px-4 pc:px-8 py-4 text-8 pc:text-16 leading-none">昼の部</span>
           <span>12:00〜15:00</span>
         </div>
-        <div className="max-md:w-full flex items-center gap-8">
-          <span className="border border-[#999] bg-white px-8 py-4 text-14 pc:text-16 leading-none">夜の部</span>
+        <div className="flex items-center gap-2 pc:gap-8">
+          <span className="border border-[#999] bg-white px-4 pc:px-8 py-4 text-8 pc:text-16 leading-none">夜の部</span>
           <span>17:00〜20:00</span>
         </div>
       </div>
@@ -782,7 +782,7 @@ export default function Home() {
         </section>
 
         {/* 画像区間 */}
-        <section data-kvbg="ABOUT" className="min-h-screen mt-[100dvh] pt-[40dvh]">
+        <section data-kvbg="ABOUT" className="min-h-screen mt-[100dvh] pt-[40dvh] overflow-x-hidden">
           <div data-zoom-panel-wrap>
             <div data-zoom-panel className="relative bg-white mx-auto px-20 py-80 pc:py-160 w-full origin-center z-[500]">
               <div className="mx-auto max-w-800">
@@ -805,15 +805,16 @@ export default function Home() {
 
                   <div className="flex flex-col gap-30 pc:gap-60">
                     <SectionTitle title="Usage flow" subTitle="ご利用の流れ" />
-                    <div className="bg-[#e2dfd3] p-24 pc:p-80">
-                      <div className="mx-auto flex max-w-760 flex-col gap-16">
+                    <div className="relative bg-[#e2dfd3] px-12 py-20 pc:p-80">
+                      <Image src="/media/images/bbq/svg-text.svg" alt="" width={760} height={100} className="absolute -top-32 pc:-top-48 -left-20 pc:-left-40 w-120 pc:w-240" />
+                      <div className="mx-auto flex max-w-760 flex-col gap-12 pc:gap-16">
                         {usageFlowItems.map((item, index) => (
                           <div key={item.title} className="relative">
                             <div className="bg-white">
-                              <div className="flex items-center justify-between bg-[#595757] px-18 py-12 text-white pc:px-24">
-                                <h3 className="text-16 pc:text-18 font-medium leading-none">{item.title}</h3>
+                              <div className="flex items-center justify-between bg-[#595757] px-12 pc:px-18 py-8 pc:py-12 text-white pc:px-24">
+                                <h3 className="text-12 pc:text-18 font-medium leading-none">{item.title}</h3>
 
-                                <div className="flex items-center gap-x-8 text-13 pc:text-15 leading-none">
+                                <div className="flex items-center gap-x-8 text-12 pc:text-15 leading-none">
                                   <span className="flex items-center gap-x-4">
                                     <Image src="/media/images/bbq/svg-sun.svg" alt="太陽アイコン" width={16} height={16} aria-hidden="true" />
                                     {item.dayTime}
@@ -826,7 +827,7 @@ export default function Home() {
                                 </div>
                               </div>
 
-                              <div className="min-h-72 px-18 py-20 text-14 pc:px-24 pc:py-28 pc:text-16 leading-[1.7]">{item.body}</div>
+                              <div className="pc:min-h-72 px-12 pc:px-24 py-16 pc:py-28 text-10 pc:text-16 leading-[1.7]">{item.body}</div>
                             </div>
 
                             {index !== usageFlowItems.length - 1 && <span aria-hidden="true" className="mx-auto mt-12 block h-0 w-0 border-x-[24px] border-t-[14px] border-x-transparent border-t-[#595757]" />}
@@ -863,44 +864,44 @@ export default function Home() {
                   </div>
                   <div className="flex flex-col gap-30 pc:gap-60">
                     <SectionTitle title="Plan" subTitle="プランのご案内" />
-                    <div className="bg-[#e2dfd3] px-12 md:px-40 py-20 md:py-56 flex flex-col gap-12 md:gap-40">
-                      <p className="text-12 md:text-20 text-center">
+                    <div className="bg-[#e2dfd3] px-12 pc:px-40 py-20 pc:py-56 flex flex-col gap-12 pc:gap-40">
+                      <p className="text-12 pc:text-20 text-center">
                         下記よりお一人様１コースご注文ください
                         <br />
-                        <span className="text-8 md:text-16">（同グループでコースは統一いただきますようお願いします）</span>
+                        <span className="text-8 pc:text-16">（同グループでコースは統一いただきますようお願いします）</span>
                       </p>
-                      <div className="grid grid-cols-2 gap-8 md:gap-24">
+                      <div className="grid grid-cols-2 gap-8 pc:gap-24">
                         {planItems.map((item) => (
-                          <article key={item.number} className="bg-[#595757] px-6 md:px-12 py-10 md:py-20 text-white">
+                          <article key={item.number} className="bg-[#595757] px-6 pc:px-12 py-10 pc:py-20 text-white">
                             <div className="flex items-end gap-x-8 border-b border-white pb-4">
-                              <span className="text-8 md:text-20 font-medium leading-none scale-y-[1.3]">{item.number}</span>
-                              <h3 className="text-8 md:text-20 font-medium leading-none scale-y-[1.3]">{item.name}</h3>
-                              <span className="text-4 md:text-10 font-medium leading-none">{item.kana}</span>
+                              <span className="text-8 pc:text-20 font-medium leading-none scale-y-[1.3]">{item.number}</span>
+                              <h3 className="text-8 pc:text-20 font-medium leading-none scale-y-[1.3]">{item.name}</h3>
+                              <span className="text-6 pc:text-10 font-medium leading-none">{item.kana}</span>
                             </div>
 
                             {item.image && <Image className="mt-12 h-auto w-full" src={item.image} alt={item.alt} width={433} height={195} />}
 
-                            <p className="mt-8 md:mt-12 text-7 md:text-12 font-medium leading-snug">{item.description}</p>
+                            <p className="mt-8 pc:mt-12 text-6 pc:text-12 font-medium leading-snug">{item.description}</p>
 
-                            <div className="mt-8 md:mt-12 flex items-center gap-x-4 md:gap-x-8">
-                              <p className="text-12 md:text-20 font-medium leading-none scale-y-[1.3]">{item.price}</p>
+                            <div className="mt-8 pc:mt-12 flex items-center gap-x-4 pc:gap-x-8">
+                              <p className="text-12 pc:text-20 font-medium leading-none scale-y-[1.3]">{item.price}</p>
 
                               {item.campaignPrice && (
                                 <>
                                   <span className="flex items-center gap-2" aria-hidden="true">
-                                    <span className="block h-0 w-0 border-y-4 md:border-y-8 border-l-3 md:border-l-6 border-y-transparent border-l-orange" />
-                                    <span className="block h-0 w-0 border-y-4 md:border-y-8 border-l-3 md:border-l-6 border-y-transparent border-l-orange" />
+                                    <span className="block h-0 w-0 border-y-4 pc:border-y-8 border-l-3 pc:border-l-6 border-y-transparent border-l-orange" />
+                                    <span className="block h-0 w-0 border-y-4 pc:border-y-8 border-l-3 pc:border-l-6 border-y-transparent border-l-orange" />
                                   </span>
                                   <div className="flex">
                                     <div className="bg-orange p-4 flex items-center">
-                                      <span className="text-8 md:text-14 font-medium leading-none text-white">
+                                      <span className="text-8 pc:text-14 font-medium leading-none text-white">
                                         平日限定
-                                        <br className="md:hidden" />
-                                        <span className="text-4 md:text-10">（5/10〜7/10まで）</span>
+                                        <br className="pc:hidden" />
+                                        <span className="text-4 pc:text-10">（5/10〜7/10まで）</span>
                                       </span>
                                     </div>
                                     <div className="bg-white self-stretch flex items-center justify-center p-4">
-                                      <span className="block text-12 md:text-20 text-orange font-semibold leading-none scale-y-[1.3]">{item.campaignPrice}</span>
+                                      <span className="block text-12 pc:text-20 text-orange font-semibold leading-none scale-y-[1.3]">{item.campaignPrice}</span>
                                     </div>
                                   </div>
                                 </>
@@ -931,20 +932,20 @@ export default function Home() {
                           <span className="text-12 pc:text-16">（料金に含まれるもの）</span>
                         </p>
                         <div className="bg-[#e2dfd3]">
-                          <div className="grid grid-cols-3 max-md:grid-cols-6 gap-2">
+                          <div className="grid grid-cols-3 max-pc:grid-cols-6 gap-2">
                             {serviceInfoItems.map((item, i) => (
-                              <article key={i} className={`flex max-pc:w-full min-h-120 pc:min-h-220 flex-col justify-center p-8 pc:p-24 ${item.className}`}>
-                                <h3 className="whitespace-pre-line text-center text-14 pc:text-18 font-bold leading-[1.5]">{item.title}</h3>
+                              <article key={i} className={`flex max-pc:w-full min-h-100 pc:min-h-220 flex-col justify-center p-8 pc:p-24 ${item.className}`}>
+                                <h3 className="whitespace-pre-line text-center text-10 pc:text-18 font-bold leading-[1.5]">{item.title}</h3>
 
-                                {item.text && <p className="mt-12 pc:mt-20 text-12 pc:text-14 font-medium leading-[1.6]">{item.text}</p>}
+                                {item.text && <p className="mt-12 pc:mt-20 text-10 pc:text-14 font-medium leading-[1.6]">{item.text}</p>}
 
-                                {item.note && <p className="mt-8 pc:mt-16 text-10 pc:text-12 font-medium leading-[1.6]">{item.note}</p>}
+                                {item.note && <p className="mt-8 pc:mt-16 text-7 pc:text-12 font-medium leading-[1.6]">{item.note}</p>}
                               </article>
                             ))}
                           </div>
                         </div>
                       </div>
-                      <div className="flex flex-col gap-24">
+                      <div className="flex flex-col gap-12 pc:gap-24">
                         <p className="text-14 pc:text-20 text-center">
                           有料サービス
                           <br />
@@ -953,25 +954,25 @@ export default function Home() {
                         <div className="px-16 pc:px-40 py-16 pc:py-24 bg-white">
                           <div className="divide-y divide-[#c9c9c9]">
                             {optionItems.map((item) => (
-                              <div key={item.label} className="flex flex-col gap-8 py-20 pc:flex-row pc:items-center pc:justify-between">
+                              <div key={item.label} className="flex flex-col gap-8 py-12 pc:py-20 pc:flex-row pc:items-center pc:justify-between">
                                 <div className="flex flex-col gap-4">
-                                  <p className="text-16 pc:text-20 font-bold leading-none">{item.label}</p>
-                                  <p className="text-12 pc:text-14 font-medium leading-[1.6]">{item.text}</p>
+                                  <p className="text-12 pc:text-20 font-bold leading-none">{item.label}</p>
+                                  <p className="text-8 pc:text-14 font-medium leading-[1.6]">{item.text}</p>
                                 </div>
 
                                 {item.price && (
-                                  <div className="max-md:basis-full flex flex-wrap items-baseline gap-8 justify-end">
-                                    {item.pricePrefix && <span className="text-12 pc:text-14 font-medium leading-none">{item.pricePrefix}</span>}
+                                  <div className="max-pc:basis-full flex flex-wrap items-baseline gap-8 justify-end">
+                                    {item.pricePrefix && <span className="text-10 pc:text-16 font-medium leading-none">{item.pricePrefix}</span>}
 
-                                    <span className="inline-block scale-y-[1.3] text-20 pc:text-24 font-bold leading-none">{item.price}</span>
+                                    <span className="inline-block scale-y-[1.3] text-14 pc:text-24 font-bold leading-none">{item.price}</span>
 
                                     {item.priceSub && (
                                       <>
-                                        <span className="max-pc:hidden text-20 pc:text-24 font-bold leading-none">／</span>
+                                        <span className="max-pc:hidden text-14 pc:text-24 font-bold leading-none">／</span>
                                         <span className="max-pc:basis-full"></span>
-                                        {item.priceSubPrefix && <span className="text-14 pc:text-16 font-medium leading-none">{item.priceSubPrefix}</span>}
+                                        {item.priceSubPrefix && <span className="text-10 pc:text-16 font-medium leading-none">{item.priceSubPrefix}</span>}
 
-                                        <span className="inline-block scale-y-[1.3] text-20 pc:text-24 font-bold leading-none">{item.priceSub}</span>
+                                        <span className="inline-block scale-y-[1.3] text-14 pc:text-24 font-bold leading-none">{item.priceSub}</span>
                                       </>
                                     )}
                                   </div>
@@ -995,20 +996,20 @@ export default function Home() {
                 <div className="flex flex-col gap-80 pc:gap-160">
                   <div className="flex flex-col gap-30 pc:gap-60">
                     <SectionTitle title="How to use" subTitle="ご利用方法" />
-                    <div className="bg-[#e2dfd3] px-20 py-40 pc:px-56 pc:py-64">
+                    <div className="bg-[#e2dfd3] px-12 pc:px-20 py-24 pc:py-40 pc:px-56 pc:py-64">
                       <div className="divide-y divide-[#999]">
                         {facilityInfoItems.map((item) => (
-                          <div key={item.label} className="grid gap-32 py-20 pc:grid-cols-[160rem_1fr] items-center">
-                            <div className="flex items-center justify-center bg-[#595757] p-12">
-                              <p className=" text-16 font-bold leading-none text-white">{item.label}</p>
+                          <div key={item.label} className="grid grid-cols-[72rem_1fr] pc:grid-cols-[160rem_1fr] gap-8 pc:gap-32 py-10 pc:py-20 items-center">
+                            <div className="flex items-center justify-center bg-[#595757] p-8 pc:p-12">
+                              <p className="text-8 pc:text-16 font-bold leading-none text-white">{item.label}</p>
                             </div>
 
-                            <div className="text-14 pc:text-16 font-medium leading-[1.9]">{item.body}</div>
+                            <div className="text-8 pc:text-16 font-medium leading-[1.9]">{item.body}</div>
                           </div>
                         ))}
                       </div>
 
-                      <ul className="mt-24 pc:mt-32 text-14 pc:text-16 font-medium leading-[1.8]">
+                      <ul className="mt-24 pc:mt-32 text-8 pc:text-16 font-medium leading-[1.8]">
                         <li>※大人と就学児混合の場合はご予約時にご相談ください。</li>
                         <li>※貸切のご利用については事前にご相談ください。</li>
                         <li>※利用時間の延長に関しては事前にお問い合わせください。</li>
@@ -1035,14 +1036,14 @@ export default function Home() {
 
                     <Image className="w-full" src="/media/images/bbq/svg-map.svg" alt="地図" width={16} height={16} aria-hidden="true" />
                   </div>
-                  <div className="grid md:grid-cols-3 gap-8 pc:gap-24">
+                  <div className="grid grid-cols-3 gap-4 pc:gap-24">
                     {infoNavItems.map((item) => (
-                      <Link key={item.href} className="h-80 px-16 bg-off-white border border-black flex justify-between items-center gap-x-16" href={item.href}>
+                      <Link key={item.href} className="h-64 pc:h-80 px-8 pc:px-16 bg-off-white border border-black flex justify-between items-center gap-x-8 pc:gap-x-16" href={item.href}>
                         <div className="flex flex-col gap-8">
-                          <span className="text-16 font-noto-serif font-medium leading-none">{item.en}</span>
-                          <span className="text-12 font-medium leading-none">{item.ja}</span>
+                          <span className="text-12 pc:text-16 font-noto-serif font-medium leading-none">{item.en}</span>
+                          <span className="text-8 pc:text-12 font-medium leading-none">{item.ja}</span>
                         </div>
-                        <Image className="w-12" src="/media/images/bbq/svg_double-arrow-right.svg" alt="ダブルアロー" loading="lazy" width={23} height={32} />
+                        <Image className="w-8 pc:w-12" src="/media/images/bbq/svg_double-arrow-right.svg" alt="ダブルアロー" loading="lazy" width={23} height={32} />
                       </Link>
                     ))}
                   </div>
