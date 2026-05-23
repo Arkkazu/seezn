@@ -1,12 +1,11 @@
+import { PageTitle } from "@/components/PageTitle";
+
 export const Use = () => {
   return (
     <div className="bg-[#E1DED2] py-64 pc:py-80">
       <section className="px-20 pc:px-160">
         <div className="mx-auto max-w-1200">
-          <div className="flex items-end gap-x-16">
-            <span className="text-20 pc:text-24 font-semibold font-noto-serif">Precautions for use</span>
-            <h1 className="pb-[0.2em]">ご利用上の注意</h1>
-          </div>
+          <PageTitle en="Precautions for use" ja="ご利用上の注意" />
 
           <div className="mt-24 pc:mt-40">
             <div className="bg-white py-32 pc:py-64 px-20 pc:px-40">
@@ -167,10 +166,7 @@ export const Use = () => {
 
       <section className="mt-48 pc:mt-64 px-20 pc:px-160" id="cancellation">
         <div className="mx-auto max-w-1200">
-          <div className="flex items-end gap-x-16">
-            <span className="text-20 pc:text-24 font-semibold font-noto-serif">Cancellation policy</span>
-            <h2 className="pb-[0.2em]">キャンセルポリシー</h2>
-          </div>
+          <PageTitle en="Cancellation policy" ja="キャンセルポリシー" tag="h2" />
 
           <div className="mt-24 pc:mt-40">
             <div className="bg-white py-32 pc:py-64 px-20 pc:px-40">

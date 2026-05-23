@@ -26,7 +26,7 @@ export const LayoutBbq = ({ title, description, image = "/ogp.jpg", url, type = 
       <MetaHead title={title} description={description} image={image} url={baseUrl} type={type} siteName={siteName} locale={locale} twitterCard={twitterCard} noindex={noindex} />
 
       {/* ページ全体構造 */}
-      <div className="flex flex-col min-h-screen">
+      <div className={`flex flex-col min-h-screen${router.pathname === "/bbq" ? " pb-56" : ""}`}>
         {/* <Header /> */}
         <main className="flex flex-col flex-grow relative">{children}</main>
         <Footer />

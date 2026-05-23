@@ -1042,7 +1042,7 @@ export default function Home() {
         </section>
         <section data-kvbg="ACCESS" className="min-h-screen mt-[100dvh] pt-[100dvh] overflow-hidden" id="access">
           <div data-zoom-panel-wrap>
-            <div data-zoom-panel className="relative bg-white mx-auto px-20 pt-80 pb-160 pc:py-160 w-full origin-center z-[500]">
+            <div data-zoom-panel className="relative bg-white mx-auto px-20 pt-80 pb-100 pc:py-160 w-full origin-center z-[500]">
               <div className="mx-auto max-w-800">
                 <div className="flex flex-col gap-32 pc:gap-64">
                   <SectionTitle title="Access" subTitle="アクセス" />
