@@ -221,20 +221,28 @@ const optionItems = [
     price: "¥5,000",
   },
   {
-    label: "貸切",
-    text: "※40名以上でのご利用の場合は無料",
+    label: "貸切（30名以上）",
+    text: "※50名以上でのご利用の場合は無料",
     pricePrefix: "平日",
     price: "¥15,000",
     priceSubPrefix: "土日祝",
-    priceSub: "¥30,000",
+    priceSub: "¥50,000",
   },
   {
     label: "延長",
-    text: "※1時間単位",
-    pricePrefix: "1ブースにつき",
+    text: (
+      <>
+        ※1時間単位
+        <br />
+        ※貸し切りの場合は、4ブース分
+        <br />
+        ※GW、お盆期間は、50名以下の貸切不可
+      </>
+    ),
+    pricePrefix: "11:00~17:00 1ブースにつき",
     price: "¥5,000",
-    priceSubPrefix: "貸切の場合",
-    priceSub: "¥20,000",
+    priceSubPrefix: "17:00~21:00 1ブースにつき",
+    priceSub: "¥10,000",
   },
   {
     label: "小屋利用",
@@ -955,25 +963,23 @@ export default function Home() {
                           <div className="divide-y divide-[#c9c9c9]">
                             {optionItems.map((item) => (
                               <div key={item.label} className="flex flex-col gap-8 py-12 pc:py-20 pc:flex-row pc:items-center pc:justify-between">
-                                <div className="flex flex-col gap-4">
-                                  <p className="text-12 pc:text-20 font-bold leading-none">{item.label}</p>
-                                  <p className="text-8 pc:text-14 font-medium leading-[1.6]">{item.text}</p>
+                                <div className="shrink-0 flex flex-col gap-4 pc:gap-8">
+                                  <p className="text-12 pc:text-18 font-bold leading-none">{item.label}</p>
+                                  <p className="text-8 pc:text-10 font-medium leading-[1.2]">{item.text}</p>
                                 </div>
 
                                 {item.price && (
-                                  <div className="max-pc:basis-full flex flex-wrap items-baseline gap-8 justify-end">
-                                    {item.pricePrefix && <span className="text-10 pc:text-16 font-medium leading-none">{item.pricePrefix}</span>}
-
-                                    <span className="inline-block scale-y-[1.3] text-14 pc:text-24 font-bold leading-none">{item.price}</span>
-
+                                  <div className="max-pc:basis-full flex flex-wrap items-baseline gap-4 pc:gap-8 justify-end">
+                                    <div className="flex items-baseline gap-4">
+                                      {item.pricePrefix && <span className="text-10 pc:text-12 font-medium leading-none">{item.pricePrefix}</span>}
+                                      <span className="inline-block scale-y-[1.3] text-14 pc:text-20 font-bold leading-none">{item.price}</span>
+                                    </div>
                                     {item.priceSub && (
-                                      <>
-                                        <span className="max-pc:hidden text-14 pc:text-24 font-bold leading-none">／</span>
+                                      <div className="flex items-baseline gap-4">
                                         <span className="max-pc:basis-full"></span>
-                                        {item.priceSubPrefix && <span className="text-10 pc:text-16 font-medium leading-none">{item.priceSubPrefix}</span>}
-
-                                        <span className="inline-block scale-y-[1.3] text-14 pc:text-24 font-bold leading-none">{item.priceSub}</span>
-                                      </>
+                                        {item.priceSubPrefix && <span className="text-10 pc:text-12 font-medium leading-none">{item.priceSubPrefix}</span>}
+                                        <span className="inline-block scale-y-[1.3] text-14 pc:text-20 font-bold leading-none">{item.priceSub}</span>
+                                      </div>
                                     )}
                                   </div>
                                 )}
@@ -997,9 +1003,9 @@ export default function Home() {
                   <div className="flex flex-col gap-30 pc:gap-60">
                     <SectionTitle title="How to use" subTitle="ご利用方法" />
                     <div className="bg-[#e2dfd3] px-12 pc:px-20 py-24 pc:py-40 pc:px-56 pc:py-64">
-                      <div className="divide-y divide-[#999]">
+                      <div className="">
                         {facilityInfoItems.map((item) => (
-                          <div key={item.label} className="grid grid-cols-[72rem_1fr] pc:grid-cols-[160rem_1fr] gap-8 pc:gap-32 py-10 pc:py-20 items-center">
+                          <div key={item.label} className="grid grid-cols-[72rem_1fr] pc:grid-cols-[160rem_1fr] gap-8 pc:gap-32 py-10 pc:py-20 items-center border-b border-[#999]">
                             <div className="flex items-center justify-center bg-[#595757] p-8 pc:p-12">
                               <p className="text-8 pc:text-16 font-bold leading-none text-white">{item.label}</p>
                             </div>
@@ -1009,7 +1015,7 @@ export default function Home() {
                         ))}
                       </div>
 
-                      <ul className="mt-24 pc:mt-32 text-8 pc:text-16 font-medium leading-[1.8]">
+                      <ul className="mt-24 pc:mt-32 text-8 pc:text-14 font-medium leading-[1.8]">
                         <li>※大人と就学児混合の場合はご予約時にご相談ください。</li>
                         <li>※貸切のご利用については事前にご相談ください。</li>
                         <li>※利用時間の延長に関しては事前にお問い合わせください。</li>
