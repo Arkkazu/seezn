@@ -32,6 +32,94 @@ const bannerItems = [
   },
 ];
 
+const planItems = [
+  {
+    number: "01",
+    name: "Standard",
+    kana: "スタンダード",
+    image: "/media/images/bbq/plan-001.webp",
+    alt: "スタンダード",
+    description: "ハンバーグ(150g)/ハーブチキン(150g)",
+    price: "¥3,800",
+    campaignPrice: "¥3,300",
+  },
+  {
+    number: "02",
+    name: "Standard Plus",
+    kana: "スタンダードプラス",
+    image: "/media/images/bbq/plan-002.webp",
+    alt: "スタンダードプラス",
+    description: "牛ステーキ(150g)/ハーブチキン(150g)",
+    price: "¥4,000",
+  },
+  {
+    number: "03",
+    name: "Wagyu",
+    kana: "和牛",
+    image: "/media/images/bbq/plan-003.webp",
+    alt: "和牛",
+    description: "A4黒毛和牛ステーキ(150g)",
+    price: "¥4,000",
+  },
+  {
+    number: "04",
+    name: "Seafood",
+    kana: "シーフード",
+    image: "/media/images/bbq/plan-004.webp",
+    alt: "シーフード",
+    description: "ハーブチキン(150g)/海鮮串/エビ/ホタテ",
+    price: "¥4,000",
+  },
+  {
+    number: "05",
+    name: "Premium",
+    kana: "プレミアム",
+    image: "/media/images/bbq/plan-005.webp",
+    alt: "プレミアム",
+    description: "A4黒毛和牛ステーキ(150g)/ハーブチキン(150g)",
+    price: "¥4,500",
+  },
+  {
+    number: "06",
+    name: "Executive",
+    kana: "エグゼクティブ",
+    image: "/media/images/bbq/plan-006.webp",
+    alt: "エグゼクティブ",
+    description: "A4黒毛和牛ステーキ(150g)/海鮮串/エビ/ホタテ",
+    price: "¥5,500",
+  },
+  {
+    number: "07",
+    name: "Kids",
+    kana: "キッズ（小学生）",
+    image: "/media/images/bbq/plan-007.webp",
+    alt: "キッズ",
+    description: "ハーブチキン(150g)",
+    price: "¥2,000",
+    variant: "gray",
+  },
+  {
+    number: "08",
+    name: "Youth",
+    kana: "ユース（中・高校生）",
+    image: "/media/images/bbq/plan-008.webp",
+    alt: "ユース",
+    description: "ハンバーグ(150g)/ハーブチキン(150g)",
+    price: "¥2,800",
+    variant: "green",
+  },
+  {
+    number: "09",
+    name: "Preschool",
+    kana: "未就学児（小学校入学前）",
+    image: "",
+    alt: "",
+    description: "",
+    price: "¥0",
+    variant: "gray",
+  },
+];
+
 export default function BbqBusiness() {
   const splideRef = useRef<{ splide: SplideCore } | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -294,159 +382,45 @@ export default function BbqBusiness() {
                     <h2 className="text-15 pc:text-17 font-medium leading-none">プラン</h2>
                   </div>
 
-                  <p className="mt-24 pc:mt-0 text-18 pc:text-25 font-noto-serif font-semibold">
-                    【大人用コース】
-                    <span className="text-14 pc:text-20"> ※18歳以上</span>
-                  </p>
+                  <div className="max-pc:mt-24 grid grid-cols-2 gap-8 pc:gap-24">
+                    {planItems.map((item) => (
+                      <article key={item.number} className="bg-[#595757] px-6 pc:px-12 py-10 pc:py-20 text-white">
+                        <div className="flex items-end gap-x-8 border-b border-white pb-4">
+                          <span className="u-text-14 font-medium leading-none scale-y-[1.3]">{item.number}</span>
+                          <h3 className="u-text-14 font-medium leading-none scale-y-[1.3]">{item.name}</h3>
+                          <span className="u-text-12 font-medium leading-none">{item.kana}</span>
+                        </div>
 
-                  {/* 大人用 4コース */}
-                  <div className="mt-12 pc:mt-24 grid pc:grid-cols-2 gap-8">
-                    {/* A */}
-                    <div className="flex flex-col">
-                      <div className="relative">
-                        <div className="absolute pc:relative -top-4 pc:top-auto -left-12 pc:left-auto w-80 pc:w-full h-80 pc:h-48 rounded-full pc:rounded-none bg-orange flex justify-center items-center">
-                          <p className="text-16 pc:text-20 text-center text-white font-medium leading-[1.3] pt-[0.1em]">
-                            コスパ
-                            <br className="pc:hidden" />
-                            重視
-                          </p>
-                        </div>
-                        <div className="h-72 pc:h-96 bg-[#FFDC96] pl-80 py-8 pr-12 pc:p-16 flex items-center rounded-tl-16 pc:rounded-tl-none">
-                          <p className="text-14 pc:text-16 font-medium leading-[1.3] pt-[0.1em]">最もリーズナブル。お肉は一人前300gで、追加の買い出しが少なく済みます！</p>
-                        </div>
-                      </div>
-                      <div className="flex-1 bg-silver-gray px-12 py-16 pc:p-16  flex pc:flex-col gap-x-8 pc:gap-x-24">
-                        <div className="shrink-0 flex items-center gap-x-8 pc:gap-x-16 pr-8 pc:pr-0 border-r pc:border-r-0 pc:border-b border-solid border-white pc:pb-12">
-                          <div className="flex items-center justify-center shrink-0 w-24 pc:w-32 aspect-square bg-black">
-                            <span className="text-16 pc:text-24 font-noto-serif font-medium text-white">A</span>
-                          </div>
-                          <span className="text-20 pc:text-32 font-noto-serif font-medium leading-none">
-                            ¥3,800<span className="text-10 pc:text-14">（税込）</span>
-                          </span>
-                        </div>
-                        <div className="pc:mt-12 flex flex-col gap-y-4">
-                          <p className="text-14 pc:text-16 font-noto-serif font-medium">牛ステーキ 150g</p>
-                          <p className="text-14 pc:text-16 font-noto-serif font-medium">ハーブチキン 150g</p>
-                        </div>
-                      </div>
-                    </div>
+                        {item.image && <Image className="mt-12 h-auto w-full" src={item.image} alt={item.alt} width={433} height={195} />}
 
-                    {/* B */}
-                    <div className="flex flex-col">
-                      <div className="relative">
-                        <div className="absolute pc:relative -top-4 pc:top-auto -left-12 pc:left-auto w-80 pc:w-full h-80 pc:h-48 rounded-full pc:rounded-none bg-orange flex justify-center items-center">
-                          <p className="text-16 pc:text-20 text-center text-white font-medium leading-[1.3] pt-[0.1em]">
-                            自由度
-                            <br className="pc:hidden" />
-                            重視
-                          </p>
-                        </div>
-                        <div className="h-72 pc:h-96 bg-[#FFDC96] pl-80 py-8 pr-12 pc:p-16 flex items-center rounded-tl-16 pc:rounded-tl-none">
-                          <p className="text-14 pc:text-16 font-medium leading-[1.3] pt-[0.1em]">Aコースより牛肉の品質グレードアップ。150gで他食材との組み合わせがしやすい！</p>
-                        </div>
-                      </div>
-                      <div className="flex-1 bg-silver-gray px-12 py-16 pc:p-16  flex pc:flex-col gap-x-8 pc:gap-x-24">
-                        <div className="shrink-0 flex items-center gap-x-8 pc:gap-x-16 pr-8 pc:pr-0 border-r pc:border-r-0 pc:border-b border-solid border-white pc:pb-12">
-                          <div className="flex items-center justify-center shrink-0 w-24 pc:w-32 aspect-square bg-black">
-                            <span className="text-16 pc:text-24 font-noto-serif font-medium text-white">B</span>
-                          </div>
-                          <span className="text-20 pc:text-32 font-noto-serif font-medium leading-none">
-                            ¥3,800<span className="text-10 pc:text-14">（税込）</span>
-                          </span>
-                        </div>
-                        <div className="pc:mt-12 pc:-mx-6 flex items-center gap-x-4">
-                          <p className="text-14 pc:text-16 font-noto-serif font-medium">国産A4和牛ステーキ 150g</p>
-                        </div>
-                      </div>
-                    </div>
+                        <p className="mt-8 pc:mt-12 u-text-12 font-medium leading-snug">{item.description}</p>
 
-                    {/* C */}
-                    <div className="flex flex-col">
-                      <div className="relative">
-                        <div className="absolute pc:relative -top-4 pc:top-auto -left-12 pc:left-auto w-80 pc:w-full h-80 pc:h-48 rounded-full pc:rounded-none bg-orange flex justify-center items-center">
-                          <p className="text-16 pc:text-20 text-center text-white font-medium leading-[1.3] pt-[0.1em]">
-                            満足度
-                            <br className="pc:hidden" />
-                            重視
-                          </p>
-                        </div>
-                        <div className="h-72 pc:h-96 bg-[#FFDC96] pl-80 py-8 pr-12 pc:p-16 flex items-center rounded-tl-16 pc:rounded-tl-none">
-                          <p className="text-14 pc:text-16 font-medium leading-[1.3] pt-[0.1em]">量も品質もアップ。美味しいお肉をたっぷり楽しみたい方に！</p>
-                        </div>
-                      </div>
-                      <div className="flex-1 bg-silver-gray px-12 py-16 pc:p-16  flex pc:flex-col gap-x-8 pc:gap-x-24">
-                        <div className="shrink-0 flex items-center gap-x-8 pc:gap-x-16 pr-8 pc:pr-0 border-r pc:border-r-0 pc:border-b border-solid border-white pc:pb-12">
-                          <div className="flex items-center justify-center shrink-0 w-24 pc:w-32 aspect-square bg-black">
-                            <span className="text-16 pc:text-24 font-noto-serif font-medium text-white">C</span>
-                          </div>
-                          <span className="text-20 pc:text-32 font-noto-serif font-medium leading-none">
-                            ¥4,500<span className="text-10 pc:text-14">（税込）</span>
-                          </span>
-                        </div>
-                        <div className="pc:mt-12 flex flex-col gap-y-4">
-                          <div className="pc:-mx-6 flex items-center gap-x-4">
-                            <p className="text-14 pc:text-16 font-noto-serif font-medium">国産A4和牛ステーキ 150g</p>
-                          </div>
-                          <div className="pc:-mx-6 flex items-center gap-x-4">
-                            <p className="mt-4 text-14 pc:text-16 font-noto-serif font-medium">ハーブチキン 150g</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                        <div className="mt-8 pc:mt-12 flex items-center gap-x-4 pc:gap-x-8">
+                          <p className="u-text-18 font-medium leading-none scale-y-[1.3]">{item.price}</p>
 
-                    {/* D */}
-                    <div className="flex flex-col">
-                      <div className="relative">
-                        <div className="absolute pc:relative -top-4 pc:top-auto -left-12 pc:left-auto w-80 pc:w-full h-80 pc:h-48 rounded-full pc:rounded-none bg-orange flex justify-center items-center">
-                          <p className="text-16 pc:text-20 text-center text-white font-medium leading-[1.3] pt-[0.1em]">
-                            充実度
-                            <br className="pc:hidden" />
-                            重視
-                          </p>
+                          {item.campaignPrice && (
+                            <>
+                              <span className="flex items-center gap-2" aria-hidden="true">
+                                <span className="block h-0 w-0 border-y-4 pc:border-y-8 border-l-3 pc:border-l-6 border-y-transparent border-l-orange" />
+                                <span className="block h-0 w-0 border-y-4 pc:border-y-8 border-l-3 pc:border-l-6 border-y-transparent border-l-orange" />
+                              </span>
+                              <div className="flex">
+                                <div className="bg-orange p-4 flex items-center">
+                                  <span className="u-text-14 font-medium leading-none text-white">
+                                    平日限定
+                                    <br className="pc:hidden" />
+                                    <span className="u-text-10">（5/10〜7/10まで）</span>
+                                  </span>
+                                </div>
+                                <div className="bg-white self-stretch flex items-center justify-center p-4">
+                                  <span className="block u-text-18 text-orange font-semibold leading-none scale-y-[1.3]">{item.campaignPrice}</span>
+                                </div>
+                              </div>
+                            </>
+                          )}
                         </div>
-                        <div className="h-72 pc:h-96 bg-[#FFDC96] pl-80 py-8 pr-12 pc:p-16 flex items-center rounded-tl-16 pc:rounded-tl-none">
-                          <p className="text-14 pc:text-16 font-medium leading-[1.3] pt-[0.1em]">海鮮好きにおすすめ。6点刺し海鮮串＋チキンでボリューム満点！</p>
-                        </div>
-                      </div>
-                      <div className="flex-1 bg-silver-gray px-12 py-16 pc:p-16  flex pc:flex-col gap-x-8 pc:gap-x-24">
-                        <div className="shrink-0 flex items-center gap-x-8 pc:gap-x-16 pr-8 pc:pr-0 border-r pc:border-r-0 pc:border-b border-solid border-white pc:pb-12">
-                          <div className="flex items-center justify-center shrink-0 w-24 pc:w-32 aspect-square bg-black">
-                            <span className="text-16 pc:text-24 font-noto-serif font-medium text-white">D</span>
-                          </div>
-                          <span className="text-20 pc:text-32 font-noto-serif font-medium leading-none">
-                            ¥4,200<span className="text-10 pc:text-14">（税込）</span>
-                          </span>
-                        </div>
-                        <div className="pc:mt-12 flex flex-col gap-y-4">
-                          <div className="pc:-mx-6 flex items-center gap-x-4">
-                            <p className="text-14 pc:text-16 font-noto-serif font-medium">ハーブチキン 150g</p>
-                          </div>
-                          <div className="pc:-mx-6 flex items-center gap-x-4">
-                            <p className="mt-4 text-14 pc:text-16 font-noto-serif font-medium">海鮮串・エビ・ホタテ 各1個</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <p className="mt-8 -indent-[1em] pl-[1em] text-14 pc:text-19 text-red font-noto-serif font-medium">※各コース共に焼きそばや野菜、お飲み物などは含まれておりません。</p>
-
-                  {/* 子供用コース */}
-                  <div className="relative mt-16 py-32 pc:pb-0 border-t border-b pc:border-b-0 border-solid border-black">
-                    <p className="text-18 pc:text-25 font-noto-serif font-semibold">
-                      【子供用コース】
-                      <span className="text-14 pc:text-20"> ※小学生以上高校卒業まで</span>
-                    </p>
-                    <div className="mt-12 pc:mt-24 bg-silver-gray py-16 pc:py-20 px-16 pc:px-64">
-                      <div className="flex items-center gap-x-8 pc:gap-x-32">
-                        <span className="text-20 pc:text-32 font-noto-serif font-medium leading-none">
-                          ¥2,500<span className="text-10 pc:text-14">（税込）</span>
-                        </span>
-                        <div className="h-32 pc:h-52 w-[1px] bg-white" />
-                        <p className="text-14 pc:text-16 font-noto-serif font-medium">牛ステーキ 150g</p>
-                      </div>
-                    </div>
-                    <p className="mt-16 pc:mt-0 pc:absolute pc:top-38 pc:right-0 text-14 pc:text-19 font-noto-serif font-medium">未就学児のご利用は無料　※お肉なし</p>
+                      </article>
+                    ))}
                   </div>
                 </div>
               </div>

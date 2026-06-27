@@ -221,6 +221,89 @@ export const Use = () => {
           </div>
         </div>
       </section>
+
+      <section className="mt-48 pc:mt-64 px-20 pc:px-160" id="cancellation">
+        <div className="mx-auto max-w-1200">
+          <PageTitle en="Private reservation" ja="貸切" tag="h2" />
+
+          <div className="mt-24 pc:mt-40">
+            <div className="bg-white py-32 pc:py-64 px-20 pc:px-40">
+              <ol className="grid pc:grid-cols-2 gap-y-40">
+                <li className="">
+                  <div className="flex items-center gap-x-16">
+                    <div className="shrink-0 bg-black w-36 pc:w-40 aspect-square flex justify-center items-center">
+                      <span className="text-20 pc:text-24 text-white">1</span>
+                    </div>
+                    <div className="flex-1">
+                      <p className="">基本設定</p>
+                    </div>
+                  </div>
+                  <div className="mt-16 ml-56">
+                    <ul className="list-disc pl-20">
+                      <li>予約金：20,000円</li>
+                      <li>入金期限：ご予約確定から１週間以内</li>
+                      <li>入金方法：ご来店（現金/カード/PayPay）、お振込み（手数料は施設負担）</li>
+                      <li>
+                        返金可能期間：予約日の１ヶ月前まで
+                        <br />
+                        ※１ヶ月未満の場合はキャンセル料として返金不可
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li className="">
+                  <div className="flex items-center gap-x-16">
+                    <div className="shrink-0 bg-black w-36 pc:w-40 aspect-square flex justify-center items-center">
+                      <span className="text-20 pc:text-24 text-white">2</span>
+                    </div>
+                    <div className="flex-1">
+                      <p className="">仮予約について</p>
+                    </div>
+                  </div>
+                  <div className="mt-16 ml-56">
+                    <ul className="list-disc pl-20">
+                      <li>
+                        仮予約期間：希望日まで１ヶ月以上の場合　ご連絡日から２週間
+                        <br />
+                        　　　　　　希望日まで１ヶ月未満の場合　ご連絡翌日から５日間
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+              </ol>
+              <div className="mt-24 pc:mt-32">
+                <p className="font-semibold">例①：希望日8/10 ➡ ご連絡 6/15</p>
+                <div className="">
+                  <dl className="grid w-full grid-cols-[110rem_1fr] pc:grid-cols-[140rem_1fr] border-t border-l border-black">
+                    <dt className="border-r border-b border-black px-8 pc:px-12 py-6 pc:py-10 text-13 text-13 pc:text-15 font-semibold">仮予約期間</dt>
+                    <dd className="border-r border-b border-black px-8 pc:px-12 py-6 pc:py-10 text-13 text-13 pc:text-15">～ 6/29 18:00まで（電話対応時間が18:00までのため）</dd>
+                    <dt className="border-r border-b border-black px-8 pc:px-12 py-6 pc:py-10 text-13 text-13 pc:text-15 font-semibold">予約金入金期限</dt>
+                    <dd className="border-r border-b border-black px-8 pc:px-12 py-6 pc:py-10 text-13 text-13 pc:text-15">～ 7/6 17:00まで（事務所の人がいる時間&通帳記帳可能時間）</dd>
+                    <dt className="border-r border-b border-black px-8 pc:px-12 py-6 pc:py-10 text-13 text-13 pc:text-15 font-semibold">返金可能期間</dt>
+                    <dd className="border-r border-b border-black px-8 pc:px-12 py-6 pc:py-10 text-13 text-13 pc:text-15">入金から7/1 18:00まで（電話対応時間が18:00までのため）</dd>
+                    <dt className="border-r border-b border-black px-8 pc:px-12 py-6 pc:py-10 text-13 text-13 pc:text-15 font-semibold">返金不可期間</dt>
+                    <dd className="border-r border-b border-black px-8 pc:px-12 py-6 pc:py-10 text-13 text-13 pc:text-15">7/1 18:00以降</dd>
+                  </dl>
+                </div>
+              </div>
+              <div className="mt-24 pc:mt-32">
+                <p className="font-semibold">例②：希望日 7/25 ➡ ご連絡 7/2</p>
+                <div className="">
+                  <dl className="grid w-full grid-cols-[110rem_1fr] pc:grid-cols-[140rem_1fr] border-t border-l border-black">
+                    <dt className="border-r border-b border-black px-8 pc:px-12 py-6 pc:py-10 text-13 text-13 pc:text-15 font-semibold">仮予約期間</dt>
+                    <dd className="border-r border-b border-black px-8 pc:px-12 py-6 pc:py-10 text-13 text-13 pc:text-15">～ 7/7 18:00まで（電話対応時間が18:00までのため）</dd>
+                    <dt className="border-r border-b border-black px-8 pc:px-12 py-6 pc:py-10 text-13 text-13 pc:text-15 font-semibold">予約金入金期限</dt>
+                    <dd className="border-r border-b border-black px-8 pc:px-12 py-6 pc:py-10 text-13 text-13 pc:text-15">～ 7/14 17:00まで（事務所の人がいる時間&通帳記帳可能時間）</dd>
+                    <dt className="border-r border-b border-black px-8 pc:px-12 py-6 pc:py-10 text-13 text-13 pc:text-15 font-semibold">返金可能期間</dt>
+                    <dd className="row-span-2 flex items-center border-r border-b border-black px-8 pc:px-12 py-6 pc:py-10 text-13 text-13 pc:text-15">入金後は返金不可</dd>
+                    <dt className="border-r border-b border-black px-8 pc:px-12 py-6 pc:py-10 text-13 text-13 pc:text-15 font-semibold">返金不可期間</dt>
+                  </dl>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
