@@ -51,8 +51,8 @@ export const Layout = ({ title, description, image = "/ogp.jpg", url, type = "we
       {/* ページ全体構造 */}
       <div className="flex flex-col min-h-screen">
         <main className="flex-grow">{children}</main>
-        <Footer />
-        <SpMenu />
+        {/* <Footer />
+        <SpMenu /> */}
       </div>
     </>
   );

@@ -1060,7 +1060,7 @@ export default function Home() {
                       <iframe className="block absolute inset-0 w-full h-full" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d803.2535577151344!2d139.00051819162854!3d36.36043418841604!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601e8d6815b66347%3A0x71c9c76e08971014!2sSEEZN!5e0!3m2!1sja!2sjp!4v1680838139644!5m2!1sja!2sjp" width="800" height="600" allowFullScreen={true} loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="seeznの地図"></iframe>
                     </div>
 
-                    <Image className="w-full" src="/media/images/bbq/svg-map.svg" alt="地図" width={16} height={16} aria-hidden="true" />
+                    <Image className="w-full" src="/media/images/bbq/svg-map2.svg" alt="地図" width={16} height={16} aria-hidden="true" />
                   </div>
                   <div className="grid grid-cols-3 gap-4 pc:gap-24">
                     {infoNavItems.map((item) => (

@@ -49,3 +49,6 @@ DEPLOY.md
 
 *storybook.log
 storybook-static
+
+# Project-local credentials (never commit)
+/MyBrain/private/
