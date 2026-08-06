@@ -1079,7 +1079,7 @@ export default function Home() {
           </div>
         </section>
         <BannerReservation />
-        <BannerBusiness />
+        {/* <BannerBusiness /> */}
       </div>
     </LayoutBbq>
   );
