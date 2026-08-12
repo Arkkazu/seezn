@@ -398,7 +398,7 @@ export default function BbqBusiness() {
                         <div className="mt-8 pc:mt-12 flex items-center gap-x-4 pc:gap-x-8">
                           <p className="u-text-18 font-medium leading-none scale-y-[1.3]">{item.price}</p>
 
-                          {item.campaignPrice && (
+                          {/* {item.campaignPrice && (
                             <>
                               <span className="flex items-center gap-2" aria-hidden="true">
                                 <span className="block h-0 w-0 border-y-4 pc:border-y-8 border-l-3 pc:border-l-6 border-y-transparent border-l-orange" />
@@ -417,7 +417,7 @@ export default function BbqBusiness() {
                                 </div>
                               </div>
                             </>
-                          )}
+                          )} */}
                         </div>
                       </article>
                     ))}
