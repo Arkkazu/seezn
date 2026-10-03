@@ -1,0 +1,41 @@
+name: Deploy protected burger preview
+on:
+  push:
+    branches: [deploy/burger-preview-20261003]
+permissions:
+  contents: read
+concurrency:
+  group: seezn-burger-preview-production
+  cancel-in-progress: false
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Decrypt deployment bundle
+        env:
+          BURGER_PREVIEW_BUNDLE_KEY: ${{ secrets.BURGER_PREVIEW_BUNDLE_KEY }}
+        run: |
+          node <<'NODE'
+          const fs=require('fs'),crypto=require('crypto');
+          const b=fs.readFileSync('deployment/burger-preview/bundle.enc');
+          const d=crypto.createDecipheriv('aes-256-gcm',Buffer.from(process.env.BURGER_PREVIEW_BUNDLE_KEY,'hex'),b.subarray(0,12));
+          d.setAuthTag(b.subarray(12,28));
+          fs.writeFileSync('/tmp/burger-payload.json',Buffer.concat([d.update(b.subarray(28)),d.final()]),{mode:0o600});
+          NODE
+      - name: Set authentication and deploy only burger LP files
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_REMOTE_PATH: ${{ secrets.FTP_REMOTE_PATH }}
+          BURGER_PREVIEW_AUTH_USER: ${{ secrets.BURGER_PREVIEW_AUTH_USER }}
+          BURGER_PREVIEW_AUTH_PASSWORD: ${{ secrets.BURGER_PREVIEW_AUTH_PASSWORD }}
+        run: python deployment/burger-preview/deploy.py
+      - name: Save deployment verification
+        uses: actions/upload-artifact@v4
+        with:
+          name: burger-preview-verification
+          path: /tmp/burger-deploy-result.json
+          retention-days: 7
